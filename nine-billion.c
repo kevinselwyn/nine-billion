@@ -19,12 +19,12 @@ int main() {
 	strcpy(name, "AAABAAABA");
 
 	while (strcmp(name, "FFFFFFFFF") != 0) {
-		name[l - 1] += 1;
+		name[l - 1] += (char)1;
 
 		for (i = l - 1; i >= 0; i -= 1) {
 			if (name[i] == '[') {
 				name[i] = 'A';
-				name[i - 1] += 1;
+				name[i - 1] += (char)1;
 			}
 		}
 
@@ -42,5 +42,9 @@ int main() {
 	}
 
 cleanup:
+	if (name) {
+		free(name);
+	}
+
 	return rc;
 }
