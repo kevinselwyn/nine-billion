@@ -2,11 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define START  "AAABAAABA"
+#define END    "ZZZZZZZZZ"
+#define LENGTH 9
+
+#define FALSE 0
+#define TRUE  1
+
 int main() {
-	int rc = 0, i = 0, l = 0, valid = 0;
+	int rc = 0, i = 0, l = 0, valid = FALSE;
 	char *name = NULL;
 
-	l = 9;
+	l = LENGTH;
 	name = malloc(sizeof(char) * (l + 1));
 
 	if (!name) {
@@ -16,9 +23,9 @@ int main() {
 		goto cleanup;
 	}
 
-	strcpy(name, "AAABAAABA");
+	strcpy(name, START);
 
-	while (strcmp(name, "FFFFFFFFF") != 0) {
+	while (strcmp(name, END) != 0) {
 		name[l - 1] += (char)1;
 
 		for (i = l - 1; i >= 0; i -= 1) {
@@ -28,11 +35,11 @@ int main() {
 			}
 		}
 
-		valid = 1;
+		valid = TRUE;
 
 		for (i = 0; i < l - 3; i++) {
 			if (name[i] == name[i + 1] && name[i + 1] == name[i + 2] && name[i + 2] == name[i + 3]) {
-				valid = 0;
+				valid = FALSE;
 			}
 		}
 

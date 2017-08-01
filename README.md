@@ -1,20 +1,20 @@
-#nine-billion
+# nine-billion
 
 Program to generate The Nine Billion Names of God
 
-##Usage
+## Usage
 
 ```
 ./nine-billion
 ```
 
-##Install
+## Install
 
 ```
 make && sudo make install
 ```
 
-##Aftermath
+## Aftermath
 
 ```
 Overhead, without any fuss, the stars were going out.
